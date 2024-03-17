@@ -1,0 +1,257 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+}
+body a {
+  text-decoration: none;
+}
+body img {
+  width: 100%;
+}
+
+#menu_control {
+  position: absolute;
+  z-index: 0;
+  opacity: 0;
+}
+
+.menu_btn {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.menu_btn::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  left: 3px;
+  width: 36px;
+  background-color: lightgray;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  box-shadow: 0px 8px 0px lightgray, 0px -8px 0px lightgray;
+}
+
+header {
+  top: 0;
+  height: 50px;
+  background-color: black;
+  position: relative;
+}
+header .logo {
+  width: 60px;
+  height: 40px;
+  padding: 5px 0 0 10px;
+}
+header nav {
+  width: 70%;
+  height: calc(100vh - 50px);
+  background-color: black;
+  position: absolute;
+  top: 50px;
+  left: -100%;
+  z-index: 2;
+}
+header nav a {
+  font-size: 13px;
+  display: block;
+  color: white;
+  padding: 10px 14px;
+  border-bottom: 1px solid dimgray;
+}
+
+#menu_control:checked ~ header nav {
+  left: 0;
+}
+
+@media screen and (min-width: 760px) {
+  .menu_btn {
+    display: none;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    align-items: center;
+  }
+  header nav {
+    position: relative;
+    left: 0;
+    display: flex;
+    width: auto;
+    height: auto;
+    top: 0;
+    background-color: transparent;
+  }
+  header nav a {
+    border: none;
+  }
+}
+footer {
+  background-color: black;
+  color: lightgray;
+  text-align: center;
+  padding: 1vh;
+}
+
+.main {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1200px;
+  text-align: left;
+}
+.main .title {
+  text-align: center;
+  padding: 30px 0 10px;
+}
+.main .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 10%;
+}
+.main .content .accordion {
+  text-align: left;
+  background-color: lightgray;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 16px;
+  width: 90%;
+  border: 1px solid white;
+  outline: none;
+  transition: 0.1s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.main .content .accordion::before {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: all 0.3s 0s;
+  z-index: -1;
+}
+.main .content .accordion:hover {
+  color: white;
+}
+.main .content .accordion:hover::before {
+  transform: none;
+}
+.main .content .accordion::after {
+  content: "▼";
+  float: right;
+}
+.main .content .accordion.active {
+  background-color: black;
+  color: white;
+}
+.main .content .accordion.active::after {
+  content: "▬";
+}
+.main .content .items.wrap {
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+.main .content .items {
+  box-sizing: border-box;
+  padding: 24px 16px;
+  display: none;
+  overflow: hidden;
+  line-height: 1.7em;
+  width: 90%;
+}
+.main .content .items.open {
+  display: block;
+}
+.main .content .items p {
+  text-indent: 2em;
+  margin-block-start: 0.5em;
+  margin-block-end: 0;
+}
+
+.cubic-area {
+  position: relative;
+  text-align: center;
+  margin: -25px 0 25px;
+}
+.cubic-area .cubic {
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+  perspective: 300px;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+}
+.cubic-area .cubic span {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  line-height: 48px;
+  transition: all 0.3s;
+}
+.cubic-area .cubic .hovering {
+  background-color: black;
+  color: white;
+  transform: rotateX(90deg);
+  transform-origin: center center -25px;
+}
+.cubic-area .cubic .hovering2 {
+  background-color: dimgray;
+  color: white;
+  transform: rotateX(90deg);
+  transform-origin: center center -25px;
+}
+.cubic-area .cubic .default {
+  color: black;
+  transform: rotateX(0);
+  transform-origin: center center -25px;
+}
+.cubic-area .cubic .default2 {
+  background-color: black;
+  color: white;
+  transform: rotateX(0);
+  transform-origin: center center -25px;
+}
+.cubic-area .cubic:hover .hovering, .cubic-area .cubic:hover .hovering2 {
+  transform: rotateX(0);
+}
+.cubic-area .cubic:hover .default, .cubic-area .cubic:hover .default2 {
+  transform: rotateX(-90deg);
+}
+
+@media screen and (560px <= width <= 760px) {
+  .cubic-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: -25px;
+    margin-bottom: 35px;
+  }
+  .cubic-area .cubic {
+    width: 40%;
+    margin: 3px;
+  }
+}/*# sourceMappingURL=WeHelp-bio.css.map */

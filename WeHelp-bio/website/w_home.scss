@@ -1,0 +1,121 @@
+@use "../module" as *;
+@import "../headfooter";
+
+.content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+h1 {
+    font-size: 30px;
+}
+.top {
+    height: 40vh;
+    display: flex;
+    background-color: $dgray;
+    & .top-left {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & .top-text {
+            padding: 0 10px;
+            color: $lgray;
+            & a {
+                font-size: 14px;
+                display: inline-block;
+                width: 100px;
+                padding: 12px;
+                text-align: center;
+                background-color: $black;
+                border-radius: 20px;
+                margin-top: 40px;
+                color: $white;
+            }
+        }
+    }
+    & .top-right {
+        flex: 3;
+        // width: 65%;
+        & img {
+            height: 40vh;
+        }
+    }
+}
+
+.about-me {
+    margin: 0px 0px 20px;
+    padding: 30px 10px;
+    text-align: center;
+    & h2 {
+        font-size: 32px;
+        color: $dgray;
+    }
+    & p {
+        font-size: 16px;
+        & #showtext {
+            display: none;
+        }
+        & .description {
+            cursor: pointer;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+        }
+    }
+}
+
+#showtext:checked ~ .description {
+    display: block;
+}
+
+.items-group {
+    width: 96%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: $dgray;
+    & .item {
+        width: 100%;
+        background-color: $lgray;
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+        & h3 {
+            font-size: 24px;
+            text-align: center;
+            margin: 12px 0;
+        }
+        & p {
+            padding: 0 12px;
+        }
+        & img {
+            max-height: 40vh;
+        }
+        .plain {
+            font-size: 12px;
+        }
+    }
+}
+
+footer {
+    margin-top: -6px;
+    position: static;
+}
+
+
+@media screen and (min-width: 760px) {
+    h1 {
+        font-size: revert;
+    }
+    .items-group {
+        width: 100%;
+        & .item {
+            width: 32%;
+            & img {
+                max-height: 250px;
+            }
+        }
+    }
+}
