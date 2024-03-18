@@ -1,0 +1,171 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+body a {
+  text-decoration: none;
+}
+body img {
+  width: 100%;
+}
+
+#menu_control {
+  position: absolute;
+  z-index: 0;
+  opacity: 0;
+}
+
+.menu_btn {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.menu_btn::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  left: 3px;
+  width: 36px;
+  background-color: lightgray;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  box-shadow: 0px 8px 0px lightgray, 0px -8px 0px lightgray;
+}
+
+header {
+  top: 0;
+  height: 50px;
+  background-color: black;
+  position: relative;
+}
+header .logo {
+  width: 60px;
+  height: 40px;
+  padding: 5px 0 0 10px;
+}
+header nav {
+  width: 70%;
+  height: calc(100vh - 50px);
+  background-color: black;
+  position: absolute;
+  top: 50px;
+  left: -100%;
+  z-index: 2;
+}
+header nav a {
+  font-size: 13px;
+  display: block;
+  color: white;
+  padding: 10px 14px;
+  border-bottom: 1px solid dimgray;
+}
+
+#menu_control:checked ~ header nav {
+  left: 0;
+}
+
+@media screen and (min-width: 760px) {
+  .menu_btn {
+    display: none;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    align-items: center;
+  }
+  header nav {
+    position: relative;
+    left: 0;
+    display: flex;
+    width: auto;
+    height: auto;
+    top: 0;
+    background-color: transparent;
+  }
+  header nav a {
+    border: none;
+  }
+}
+footer {
+  background-color: black;
+  color: lightgray;
+  text-align: center;
+  padding: 1vh;
+}
+
+body {
+  background-image: url(./imgs/hookah-lounge.webp);
+  background-position: center;
+  color: white;
+  text-align: center;
+}
+
+.back-color {
+  padding-top: 5%;
+  background-color: rgba(27, 27, 27, 0.358);
+}
+.back-color a {
+  width: 100%;
+  color: white;
+}
+.back-color .icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+}
+.back-color .icon-g {
+  display: flex;
+  width: 85%;
+  margin: auto;
+}
+.back-color h1, .back-color h2 {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 5px 0 15px 0;
+}
+.back-color h2 {
+  color: orange;
+}
+.back-color .items {
+  width: 80%;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.88);
+  opacity: 0.8;
+  border: double darkgray 10px;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+.back-color .items:hover {
+  border: double silver 10px;
+  opacity: 1;
+}
+.back-color p {
+  padding-bottom: 10px;
+}
+.back-color .solo-pic {
+  width: 90%;
+  border-radius: 4px;
+}
+
+@media screen and (min-width: 500px) {
+  .back-color .icon {
+    width: 100px;
+    height: 100px;
+  }
+  .back-color .icon-g {
+    width: 75%;
+  }
+  main {
+    max-width: 500px;
+    margin: auto;
+  }
+}/*# sourceMappingURL=match.css.map */

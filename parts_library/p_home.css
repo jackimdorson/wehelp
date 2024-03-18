@@ -1,0 +1,252 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+body a {
+  text-decoration: none;
+}
+body img {
+  width: 100%;
+}
+
+#menu_control {
+  position: absolute;
+  z-index: 0;
+  opacity: 0;
+}
+
+.menu_btn {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.menu_btn::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  left: 3px;
+  width: 36px;
+  background-color: lightgray;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  box-shadow: 0px 8px 0px lightgray, 0px -8px 0px lightgray;
+}
+
+header {
+  top: 0;
+  height: 50px;
+  background-color: black;
+  position: relative;
+}
+header .logo {
+  width: 60px;
+  height: 40px;
+  padding: 5px 0 0 10px;
+}
+header nav {
+  width: 70%;
+  height: calc(100vh - 50px);
+  background-color: black;
+  position: absolute;
+  top: 50px;
+  left: -100%;
+  z-index: 2;
+}
+header nav a {
+  font-size: 13px;
+  display: block;
+  color: white;
+  padding: 10px 14px;
+  border-bottom: 1px solid dimgray;
+}
+
+#menu_control:checked ~ header nav {
+  left: 0;
+}
+
+@media screen and (min-width: 760px) {
+  .menu_btn {
+    display: none;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    align-items: center;
+  }
+  header nav {
+    position: relative;
+    left: 0;
+    display: flex;
+    width: auto;
+    height: auto;
+    top: 0;
+    background-color: transparent;
+  }
+  header nav a {
+    border: none;
+  }
+}
+footer {
+  background-color: black;
+  color: lightgray;
+  text-align: center;
+  padding: 1vh;
+}
+
+h1, h2, div {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+.content {
+  max-width: 900px;
+  font-size: 14px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.content .wrapper {
+  flex-basis: 40%;
+  margin: 12px 12px;
+  box-shadow: 8px 8px 5px dimgray;
+}
+.content .wrapper .items {
+  border: 1px solid dimgray;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: white;
+}
+.content .wrapper > .items {
+  height: 120px;
+  color: black;
+}
+.content .wrapper a .items {
+  height: 60px;
+  background-color: darkgray;
+}
+
+.mobile-menu-icon {
+  background-color: unset;
+  border: none;
+  outline: none !important;
+  cursor: pointer;
+}
+.mobile-menu-icon > span {
+  background-color: black;
+  width: 35px;
+  height: 2px;
+  display: block;
+  margin-bottom: 9px;
+  transition: transform 0.7s;
+}
+.mobile-menu-icon > span:last-child {
+  margin-bottom: 0;
+}
+
+.menu-open {
+  background-color: black;
+}
+.menu-open .mobile-menu-icon > span {
+  background-color: white;
+}
+.menu-open .mobile-menu-icon > span:nth-child(1) {
+  transition-delay: 70ms;
+  transform: translateY(11px) rotate(135deg);
+}
+.menu-open .mobile-menu-icon > span:nth-child(2) {
+  transition-delay: 0s;
+  transform: translateX(-18px) scaleX(0);
+}
+.menu-open .mobile-menu-icon > span:nth-child(3) {
+  transition-delay: 140ms;
+  transform: translateY(-11px) rotate(-135deg);
+}
+
+.menu_btn2 {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  display: block;
+  border-radius: 3px;
+}
+.menu_btn2::before {
+  position: absolute;
+  top: 18px;
+  content: "";
+  height: 2px;
+  left: 2px;
+  width: 36px;
+  background-color: white;
+  margin: auto;
+  box-shadow: 0px 8px 0px white, 0px -8px 0px white;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  transform-style: preserve-3d;
+  perspective: 300px;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+}
+.btn.cubic span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  line-height: 48px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.btn.cubic .hovering {
+  background-color: black;
+  color: white;
+  transform: rotateX(90deg);
+  transform-origin: center center -25px;
+}
+.btn.cubic .default {
+  background-color: white;
+  color: black;
+  transform: rotateX(0);
+  transform-origin: center center -25px;
+}
+.btn.cubic:hover .hovering {
+  transform: rotateX(0);
+}
+.btn.cubic:hover .default {
+  transform: rotateX(-90deg);
+}
+
+@media screen and (min-width: 740px) {
+  .content {
+    display: flex;
+  }
+  .content .wrapper {
+    flex-basis: 30%;
+  }
+  h2 {
+    font-size: revert;
+  }
+}/*# sourceMappingURL=p_home.css.map */

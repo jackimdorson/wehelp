@@ -1,0 +1,43 @@
+@use "../../module" as *;
+@import "../../headfooter";
+
+.wrapper {
+    text-align: center;
+    margin-bottom: 80px;
+    width: 90%;
+    margin: 0 auto;
+    & h2 {
+        font-size: 24px;
+        color: $dblue;
+        &::before, &::after {
+            content: " ▼ ";
+            color: $black;
+        }
+    }
+    & pre {
+        background-color: $black;
+        color: $white;
+        border-radius: 6px;
+        text-align: start;
+        padding: 24px;
+        position: relative;
+        & button {
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 40px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            background-color: $white;
+            color: $dblue;
+        }
+    }
+}
+
+@media screen and (min-width: 760px){
+    .wrapper h2 {
+        font-size: 36px;
+    }
+}

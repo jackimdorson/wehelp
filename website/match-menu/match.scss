@@ -1,0 +1,72 @@
+@use "../../module" as *;
+@import "../../headfooter";
+
+body {
+    background-image: url(./imgs/hookah-lounge.webp);
+    background-position: center;
+    color: $white;
+    text-align: center;
+}
+.back-color {
+    padding-top: 5%;
+    background-color: rgba(27, 27, 27, 0.358);
+    & a {
+        width: 100%;
+        color: $white;
+    }
+    & .icon {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+    }
+    & .icon-g {
+        display: flex;
+        width: 85%;
+        margin: auto;
+    }
+    & h1, h2 {
+        font-size: 30px;
+        font-weight: 800;
+        margin: 5px 0 15px 0;
+    }
+    & h2 {
+        color:orange;
+    }
+    & .items {
+        width: 80%;
+        margin: auto;
+        background-color: rgba(0, 0, 0, 0.88);
+        opacity: 0.8;
+        border: double $mgray 10px;
+        padding: 20px 0;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        &:hover {
+            border: double silver 10px;
+            opacity:1.0;
+        }
+    }
+    & p {
+        padding-bottom: 10px;
+    }
+    & .solo-pic {
+        width: 90%;
+        border-radius: 4px;
+    }
+}
+
+@media screen and (min-width: 500px){
+    .back-color {
+        & .icon {
+            width: 100px;
+            height: 100px;
+        }
+        & .icon-g {
+            width: 75%;
+        }
+    }
+    main {
+        max-width: 500px;
+        margin: auto;
+    }
+}
